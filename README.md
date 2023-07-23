@@ -25,3 +25,5 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+https://github.com/imperiallinux/Add_Patient_Tabel/assets/57162808/79390b74-9351-4b3a-b6b6-e1242c369b7e
