@@ -1,0 +1,123 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "patient": [
+    {
+      "firstName": "Filip",
+      "lastName": "Nikolic",
+      "dateofBirth": "1976-01-11",
+      "gender": "M",
+      "ekv": "3",
+      "tsr": "6-12 Mjeseci",
+      "hr": "65",
+      "pr": 121,
+      "pMax": 123,
+      "pMin": 123,
+      "pwd": 1212,
+      "ptf": "1212",
+      "qrs": "1212",
+      "qt": "1212",
+      "id": 1
+    },
+    {
+      "firstName": "Nikola",
+      "lastName": "Nikolic",
+      "dateofBirth": "2001-02-07",
+      "gender": "M",
+      "ekv": "3",
+      "tsr": "<1 Mjesec",
+      "hr": "12",
+      "pr": 22,
+      "pMax": 234,
+      "pMin": 110,
+      "pwd": 2,
+      "ptf": "22",
+      "qrs": "dfs",
+      "qt": "212",
+      "id": 2
+    },
+    {
+      "firstName": "Janko",
+      "lastName": "Markovic",
+      "dateofBirth": "1988-12-22",
+      "gender": "M",
+      "ekv": "1",
+      "tsr": "6-12 Mjeseci",
+      "hr": "65",
+      "pr": 121,
+      "pMax": 123,
+      "pMin": 123,
+      "pwd": 1212,
+      "ptf": "fdfgs",
+      "qrs": "dsds",
+      "qt": "dgccz",
+      "id": 3
+    },
+    {
+      "firstName": "Jovan",
+      "lastName": "Jovanovic",
+      "dateofBirth": "1970-12-31",
+      "gender": "M",
+      "ekv": "3",
+      "tsr": "3-6 Mjeseci",
+      "hr": "gjf",
+      "pr": 1223,
+      "pMax": 124,
+      "pMin": 23,
+      "pwd": "",
+      "ptf": "ef",
+      "qrs": "sdfsg",
+      "qt": "fsfg",
+      "id": 4
+    },
+    {
+      "firstName": "asdsa",
+      "lastName": "sas",
+      "dateofBirth": "1990-12-04",
+      "gender": "Ž",
+      "ekv": "1",
+      "tsr": "<1 Mjesec",
+      "hr": "123",
+      "pr": 125,
+      "pMax": 144,
+      "pMin": 122,
+      "pwd": "",
+      "ptf": "213qw",
+      "qrs": "asdfsa",
+      "qt": "dfgg",
+      "id": 5
+    },
+    {
+      "firstName": "Miki",
+      "lastName": "Markovic",
+      "dateofBirth": "1969-12-07",
+      "gender": "M",
+      "ekv": "2",
+      "tsr": "3-6 Mjeseci",
+      "hr": "fsfdasf",
+      "pr": 123,
+      "pMax": 230,
+      "pMin": 145,
+      "pwd": "",
+      "ptf": "fasda",
+      "qrs": "asdas",
+      "qt": "asas",
+      "id": 7
+    }
+  ]
+}

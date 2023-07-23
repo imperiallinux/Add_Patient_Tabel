@@ -1,0 +1,113 @@
+<mat-toolbar color="primary">
+  <span>PACIJENTI</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button (click)="openAddEditPatFrom()">
+    Dodaj pacijenta
+  </button>
+</mat-toolbar>
+
+<div class="main-body">
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Ime </th>
+      <td mat-cell *matCellDef="let row"> {{row.firstName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Prezime </th>
+      <td mat-cell *matCellDef="let row"> {{row.lastName}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="gender">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Pol </th>
+      <td mat-cell *matCellDef="let row"> {{row.gender}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateofBirth">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Datum rđenja </th>
+      <td mat-cell *matCellDef="let row"> {{row.dateofBirth|date:'shortDate'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ekv">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> EKV </th>
+      <td mat-cell *matCellDef="let row"> {{row.ekv}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tsr">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> TSR </th>
+      <td mat-cell *matCellDef="let row"> {{row.tsr.replace('Mjesec', 'M').replace('Mjeseci', 'M')}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="hr">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> HR </th>
+      <td mat-cell *matCellDef="let row"> {{row.hr}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pr">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> PR </th>
+      <td mat-cell *matCellDef="let row"> {{row.pr}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pMax">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Pmax </th>
+      <td mat-cell *matCellDef="let row"> {{row.pMax}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pMin">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Pmin </th>
+      <td mat-cell *matCellDef="let row"> {{row.pMin}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="pwd">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> pwD </th>
+      <td mat-cell *matCellDef="let row"> {{row.pMax-row.pMin}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ptf">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> PTF </th>
+      <td mat-cell *matCellDef="let row"> {{row.ptf}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="qrs">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> QRS </th>
+      <td mat-cell *matCellDef="let row"> {{row.qrs}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="qt">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> QT </th>
+      <td mat-cell *matCellDef="let row"> {{row.qt}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Edit </th>
+      <td mat-cell *matCellDef="let row"> 
+        <button mat-icon-button color="primary" (click)="openEditPatFrom(row)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deletePatient(row.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+</div>
+
+

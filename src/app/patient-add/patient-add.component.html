@@ -1,0 +1,92 @@
+<div mat-dialog-title> 
+    <h1>Pacijent</h1>
+</div>
+<form [formGroup]="patForm" (ngSubmit)="onFormSubmit()">
+<div mat-dialog-content class="content">
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Ime</mat-label>
+            <input matInput type="text" placeholder="Jon" formControlName="firstName">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Prezime</mat-label>
+            <input matInput type="text" placeholder="Doe" formControlName="lastName">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Datum rođenja</mat-label>
+            <input matInput type="date" formControlName="dateofBirth">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-radio-group aria-label="Select an option" formControlName="gender">
+            <mat-label><b>Pol</b></mat-label>
+            <mat-radio-button value="M">Muški</mat-radio-button>
+            <mat-radio-button value="Ž">Ženski</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="row">
+        <mat-radio-group aria-label="Select an option" formControlName="ekv">
+            <mat-label><b>EKV snaga 200J</b></mat-label>
+            <mat-radio-button value="1">1</mat-radio-button>
+            <mat-radio-button value="2">2</mat-radio-button>
+            <mat-radio-button value="3">3</mat-radio-button>
+        </mat-radio-group>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Trajanje sinusnog ritma</mat-label>
+                <mat-select formControlName="tsr">
+                    <mat-option *ngFor="let val of patient" [value]="val">
+                        {{val}}
+                    </mat-option> 
+                </mat-select>  
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>HR</mat-label>
+            <input matInput type="text" placeholder="HR" formControlName="hr">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>PR</mat-label>
+            <input matInput type="number" placeholder="123" formControlName="pr">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Pmax EKG</mat-label>
+            <input matInput type="number"  placeholder="123" formControlName="pMax">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Pmin EKG</mat-label>
+            <input matInput type="number" placeholder="123" formControlName="pMin">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>PWd</mat-label>
+            <input matInput type="number" formControlName="pwd">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>PTF V1</mat-label>
+            <input matInput type="text" placeholder="PTF V1" formControlName="ptf">
+        </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>QRS</mat-label>
+            <input matInput type="text" placeholder="QRS" formControlName="qrs">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>QT interval</mat-label>
+            <input matInput type="text" placeholder="QT interval" formControlName="qt">
+        </mat-form-field>
+    </div>
+</div>
+<div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>
+    <button mat-raised-button color="primary" type="submit">{{data ? 'Update' : 'Save'}}</button>
+</div>
+</form>
