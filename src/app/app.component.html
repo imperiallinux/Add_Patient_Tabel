@@ -1,6 +1,10 @@
 <mat-toolbar color="primary">
   <span>PACIJENTI</span>
   <span class="example-spacer"></span>
+  <button mat-raised-button (click)="exportDataToExcel()">
+    Export u Excel
+  </button>
+  <span class="dist" ></span>
   <button mat-raised-button (click)="openAddEditPatFrom()">
     Dodaj pacijenta
   </button>

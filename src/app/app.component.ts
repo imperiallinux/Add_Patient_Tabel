@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from './core/core.service';
+import { ExportService } from './service/excle.service';
 
 
 
@@ -17,7 +18,24 @@ import { CoreService } from './core/core.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  
+
+  patient: any[] = [{
+  "firstName": "Miki",
+  "lastName": "Markovic",
+  "dateofBirth": "1969-12-07",
+  "gender": "M",
+  "ekv": "2",
+  "tsr": "3-6 Mjeseci",
+  "hr": "fsfdasf",
+  "pr": 123,
+  "pMax": 230,
+  "pMin": 145,
+  "pwd": "",
+  "ptf": "fasda",
+  "qrs": "asdas",
+  "qt": "asas",
+  "id": 7}];
+
   displayedColumns: string[] = [
     'firstName', 
     'lastName', 
@@ -43,7 +61,12 @@ export class AppComponent implements OnInit{
   constructor (
     private _dialog: MatDialog, 
     private _patService: PatientService,
-    private _coreService: CoreService) {}
+    private _coreService: CoreService,
+    private exportService: ExportService) {}
+
+  exportDataToExcel(): void {
+    this.exportService.exportToExcel(this.patient, 'exported_data');
+  }
 
   ngOnInit(): void {
     this.getPatient();
@@ -103,4 +126,6 @@ export class AppComponent implements OnInit{
       }
     });
   }
+
+
 }

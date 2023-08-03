@@ -4,6 +4,8 @@ import { PatientService } from '../service/patient.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { CoreService } from '../core/core.service';
+import { FileSaverService } from 'ngx-filesaver';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-patient-add',
@@ -27,7 +29,8 @@ export class PatientAddComponent implements OnInit {
     private _dialogRef:MatDialogRef<PatientAddComponent>, 
     private _patService: PatientService,
     @Inject(MAT_DIALOG_DATA) public data:any,
-    private _coreService: CoreService
+    private _coreService: CoreService,
+    private filerSaver:FileSaverService
     ) {
   
     this.patForm = this._fb.group({
@@ -47,6 +50,28 @@ export class PatientAddComponent implements OnInit {
       qt: '',
     })
   }
+/*
+  excelExport () {
+
+    const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
+    const EXCEL_EXTENSION = '.xlsx';
+    
+
+    const worksheet = XLSX.utils.json_to_sheet(this.data);
+
+    const wb = {
+      Sheets: {
+        'testingSheet':worksheet
+      },
+      SheetNames: ['testingSheet']
+    }
+
+    const excelBuffer = XLSX.write(wb,{bookType:'xlsx',type:'array'});
+
+    const blobData = new Blob([excelBuffer],{type:EXCEL_TYPE});
+    this.filerSaver.save(blobData,"demoData")
+  }
+*/
 
   ngOnInit(): void {
     this.patForm.patchValue(this.data);
