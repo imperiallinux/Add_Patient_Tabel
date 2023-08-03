@@ -4,11 +4,10 @@ import { PatientAddComponent } from './patient-add/patient-add.component';
 import { PatientService } from './service/patient.service';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableDataSource } from '@angular/material/table';
 import { CoreService } from './core/core.service';
 import { ExportService } from './service/excle.service';
+import { HttpClient } from '@angular/common/http';
 
 
 
@@ -19,22 +18,7 @@ import { ExportService } from './service/excle.service';
 })
 export class AppComponent implements OnInit{
 
-  patient: any[] = [{
-  "firstName": "Miki",
-  "lastName": "Markovic",
-  "dateofBirth": "1969-12-07",
-  "gender": "M",
-  "ekv": "2",
-  "tsr": "3-6 Mjeseci",
-  "hr": "fsfdasf",
-  "pr": 123,
-  "pMax": 230,
-  "pMin": 145,
-  "pwd": "",
-  "ptf": "fasda",
-  "qrs": "asdas",
-  "qt": "asas",
-  "id": 7}];
+  patient: any[] = [];
 
   displayedColumns: string[] = [
     'firstName', 
@@ -62,10 +46,18 @@ export class AppComponent implements OnInit{
     private _dialog: MatDialog, 
     private _patService: PatientService,
     private _coreService: CoreService,
+    private httpClient: HttpClient,
     private exportService: ExportService) {}
 
   exportDataToExcel(): void {
-    this.exportService.exportToExcel(this.patient, 'exported_data');
+    this.httpClient.get<any[]>('http://localhost:3000/patient').subscribe(
+      data => {
+        this.exportService.exportToExcel(data, 'exported_data');
+      },
+      error => {
+        console.error('Error fetching data from db.json', error);
+      }
+    );
   }
 
   ngOnInit(): void {

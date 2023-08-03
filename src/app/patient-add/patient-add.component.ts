@@ -5,7 +5,6 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MAT_DATE_FORMATS } from '@angular/material/core';
 import { CoreService } from '../core/core.service';
 import { FileSaverService } from 'ngx-filesaver';
-import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-patient-add',
